@@ -7,7 +7,7 @@ module.exports = (Impromptu) ->
 
   @register 'nodeMajor', (done) ->
     @get 'node', (err, node) ->
-      version = node?.match(/\D(\d+\.\d+)/).pop()
+      version = node?.match(/(\d+\.\d+)/).pop()
       done err, version
 
   @register 'coffee', (done) ->
