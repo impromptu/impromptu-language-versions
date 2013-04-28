@@ -10,6 +10,15 @@ module.exports = (Impromptu) ->
       version = node?.match(/\D(\d+\.\d+)/).pop()
       done err, version
 
+  @register 'coffee', (done) ->
+    @exec 'coffee --version', (err, version) ->
+      done null, version?.match(/(\d+\.\d+\.\d+)/).pop()
+
+  @register 'coffeeMajor', (done) ->
+    @get 'coffee', (err, coffee) ->
+      version = coffee?.match(/(\d+\.\d+)/).pop()
+      done err, version
+
   @register 'rubyLong', (done) ->
     @exec 'ruby --version', done
 
