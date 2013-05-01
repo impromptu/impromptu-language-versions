@@ -1,6 +1,4 @@
 module.exports = (Impromptu) ->
-  @name 'lang-versions'
-
   @register 'node', (done) ->
     @exec 'node --version', (err, version) ->
       done null, version?.replace(/^v/, '')
